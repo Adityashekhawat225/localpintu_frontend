@@ -1,0 +1,19 @@
+.video-section {
+  padding-top: 48px;
+  padding-bottom: 72px;
+}
+
+.video-heading {
+  margin-bottom: 42px;
+}
+
+@media (max-width: 580px) {
+  .video-section {
+    padding-top: 40px;
+    padding-bottom: 54px;
+  }
+
+  .video-heading {
+    margin-bottom: 30px;
+  }
+}

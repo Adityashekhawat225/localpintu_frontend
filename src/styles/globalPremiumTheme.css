@@ -1,0 +1,172 @@
+﻿:root {
+  --brand-ink:#101b2d; --brand-navy:#faf8f3; --brand-navy-2:#eee9df;
+  --brand-gold:#c79a5b; --brand-gold-dark:#ae7b3d; --brand-gold-soft:#f5e8d1;
+  --brand-ivory:#fbf8f2; --brand-paper:#fffdf9; --brand-muted:#687386;
+  --brand-line:rgba(15,35,62,.12); --brand-shadow:0 24px 70px rgba(13,29,51,.11);
+  --lux-primary:#a66f27; --lux-indigo:#faf8f3; --lux-accent:#c79a5b;
+  --lux-ink:#101b2d; --lux-muted:#687386; --lux-line:rgba(15,35,62,.12);
+  --lux-soft:#fbf8f2; --lux-surface:rgba(255,253,249,.94);
+  --lux-gradient:linear-gradient(135deg,#eee9df 0%,#765021 58%,#c79a5b 100%);
+  --lux-shadow:0 22px 60px rgba(13,29,51,.11); --lux-shadow-sm:0 10px 30px rgba(13,29,51,.075);
+}
+body{color:var(--brand-ink);background:var(--brand-ivory)}
+:focus-visible{outline-color:rgba(197,138,52,.4)}
+::selection{background:rgba(197,138,52,.24);color:var(--brand-navy)}
+::-webkit-scrollbar-track{background:#f5f0e7}::-webkit-scrollbar-thumb{background:#b9aa95;border-color:#f5f0e7}
+.primary-action,.application-book-link,.booking-submit-btn,.contact-submit-button{background:linear-gradient(135deg,#a96e25,#d3a04d)!important;box-shadow:0 14px 32px rgba(155,103,36,.24)!important}
+.text-action,.application-back-link{color:var(--brand-gold-dark)!important}
+
+/* Shared customer navigation */
+.premium-utility{background:var(--brand-navy)}
+.premium-navbar{border-color:var(--brand-line);background:rgba(255,253,249,.95)}
+.premium-links :is(a,button).is-active,.premium-links :is(a,button):hover{color:var(--brand-gold-dark)}
+.premium-cta,.drawer-cta{background:linear-gradient(135deg,#b97929,#d7a24d);box-shadow:0 12px 28px rgba(155,103,36,.24)}
+:is(.premium-cart,.nav-call){border-color:var(--brand-line);color:var(--brand-navy);background:var(--brand-paper)}
+.premium-dropdown,.profile-dropdown,.premium-drawer{border-color:var(--brand-line);background:var(--brand-paper)}
+
+/* About */
+.aboutPage{--ab-blue:var(--brand-gold-dark);--ab-ink:var(--brand-ink);--ab-muted:var(--brand-muted);background:radial-gradient(circle at 90% 5%,rgba(197,138,52,.1),transparent 24%),linear-gradient(180deg,var(--brand-ivory),var(--brand-paper) 45%,#f7f1e7)}
+.aboutButton--primary{background:linear-gradient(135deg,#ac7127,#d3a04d);box-shadow:0 14px 32px rgba(155,103,36,.22)}
+.aboutButton--secondary,.aboutStats,.aboutValue,.aboutStory__float{border-color:var(--brand-line);background:var(--brand-paper)}
+.aboutStats__card>span,.aboutValue__top>span{background:var(--brand-gold-soft);color:var(--brand-gold-dark)}
+.aboutStory blockquote{border-color:var(--brand-gold);background:#faf4e8}
+.aboutProcess{background:radial-gradient(circle at 10% 20%,rgba(197,138,52,.22),transparent 30%),var(--brand-navy)}
+.aboutProcess__heading>a,.aboutProcess__steps article>span{color:#e7c37f}
+.aboutCta{border-color:rgba(197,138,52,.24);background:radial-gradient(circle at 90% 20%,rgba(197,138,52,.18),transparent 30%),linear-gradient(115deg,#f7ead5,var(--brand-paper));box-shadow:0 22px 60px rgba(94,62,19,.09)}
+.aboutCta>a{background:linear-gradient(135deg,#a96e25,#d3a04d);box-shadow:0 14px 30px rgba(155,103,36,.22)}
+
+/* Service discovery and detail flow */
+.service-flow-page,.application-services-section{color:var(--brand-ink)}
+.service-flow-page{background:radial-gradient(circle at 8% 6%,rgba(197,138,52,.09),transparent 25%),linear-gradient(180deg,var(--brand-ivory),var(--brand-paper) 48%,#f7f1e7)}
+.application-services-heading span,.application-flow-heading span{color:var(--brand-gold-dark)!important;background:var(--brand-gold-soft)!important}
+.application-services-heading h2,.application-flow-heading h1,.application-flow-heading h2,.application-plan-detail h1{color:var(--brand-ink)!important}
+:is(.application-services-heading,.application-flow-heading,.application-plan-detail) p{color:var(--brand-muted)!important}
+:is(.application-service-card,.application-flow-card,.application-feature-card,.application-plan-detail,.application-status){border-color:var(--brand-line)!important;background-color:var(--brand-paper)!important;box-shadow:0 16px 46px rgba(13,29,51,.075)!important}
+.application-service-card{border-top-color:var(--brand-gold)!important;background:radial-gradient(circle at top right,rgba(197,138,52,.11),transparent 36%),var(--brand-paper)!important}
+.application-service-card:before{background:rgba(197,138,52,.09)!important}
+:is(.application-service-icon,.application-feature-icon){background:linear-gradient(135deg,var(--brand-navy-2),var(--brand-gold))!important;color:#fff!important}
+.application-card-meta,.application-view-button{color:var(--brand-gold-dark)!important}
+.application-view-button{background:var(--brand-gold-soft)!important}
+.application-service-card:hover,.application-flow-card:hover{border-color:rgba(197,138,52,.4)!important;box-shadow:var(--brand-shadow)!important}
+.appliance-hero-section{background:radial-gradient(circle at 85% 20%,rgba(197,138,52,.2),transparent 25%),linear-gradient(128deg,#071426,#eee9df)!important}
+.appliance-hero-badge{color:#e7c37f!important;border-color:rgba(231,195,127,.28)!important}
+.appliance-hero-glow{background:rgba(197,138,52,.16)!important}
+
+/* Blog */
+.blogHero{background:var(--brand-ivory)}
+.blogHero__mesh{background:radial-gradient(circle at 10% 25%,rgba(197,138,52,.12),transparent 25%),radial-gradient(circle at 90% 65%,rgba(20,41,71,.09),transparent 27%),linear-gradient(rgba(197,138,52,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(197,138,52,.025) 1px,transparent 1px)}
+.blogHero__badge{border-color:rgba(197,138,52,.2);color:var(--brand-gold-dark);background:var(--brand-paper)}
+.blogHero__copy h1{color:var(--brand-ink)}.blogHero__copy h1 em{color:var(--brand-gold-dark)}
+.blogHero__copy>p{color:var(--brand-muted)}
+.blogHero__actions a:first-child{border-color:var(--brand-gold);background:linear-gradient(135deg,#aa7027,#d3a04d);box-shadow:0 14px 30px rgba(155,103,36,.23)}
+.blogHero__issue small{color:var(--brand-gold-dark)}
+.allBlogs{background:linear-gradient(180deg,var(--brand-paper),#f8f3eb)!important}
+:is(.allBlogs__card,.blog-detail-card){border-color:var(--brand-line)!important;background:var(--brand-paper)!important;box-shadow:0 16px 46px rgba(13,29,51,.075)!important}
+.allBlogs__card:hover{border-color:rgba(197,138,52,.4)!important;box-shadow:var(--brand-shadow)!important}
+:is(.allBlogs__card,.blog-detail-card) h2,:is(.allBlogs__card,.blog-detail-card) h3{color:var(--brand-ink)!important}
+.allBlogs__category,.allBlogs__read-more{color:var(--brand-gold-dark)!important}
+
+/* Contact */
+.contact-us-page{--contact-primary:var(--brand-gold);--contact-dark:var(--brand-navy);--contact-dark-2:var(--brand-navy-2);--contact-text:var(--brand-ink);--contact-muted:var(--brand-muted);--contact-border:var(--brand-line);--contact-shadow:var(--brand-shadow);background:radial-gradient(circle at 9% 7%,rgba(197,138,52,.09),transparent 26%),linear-gradient(180deg,var(--brand-ivory),var(--brand-paper) 48%,#f7f1e7)}
+.contact-hero{background:radial-gradient(circle at 80% 20%,rgba(197,138,52,.3),transparent 24%),radial-gradient(circle at 20% 88%,rgba(255,255,255,.08),transparent 32%),linear-gradient(128deg,#071426,#eee9df)}
+:is(.contact-card,.contact-details-card,.contact-form-card,.contact-feature-card,.contact-trust-card){border-color:var(--brand-line)!important;background:var(--brand-paper)!important;box-shadow:0 16px 46px rgba(13,29,51,.075)!important}
+:is(.contact-info-item__icon,.contact-feature-card__icon){color:var(--brand-gold-dark)!important;background:var(--brand-gold-soft)!important}
+.contact-form :is(input,textarea):focus{border-color:var(--brand-gold)!important;box-shadow:0 0 0 4px rgba(197,138,52,.12)!important}
+
+/* Authentication */
+.auth-page{background:radial-gradient(circle at 13% 9%,rgba(197,138,52,.16),transparent 29%),radial-gradient(circle at 90% 90%,rgba(20,41,71,.12),transparent 32%),var(--brand-ivory)}
+.auth-card{border-color:rgba(255,253,249,.9);background:rgba(255,253,249,.94);box-shadow:0 30px 85px rgba(13,29,51,.15)}
+.auth-card h1{color:var(--brand-ink)}
+.auth-card :is(input,textarea){border-color:var(--brand-line);background:#fff}
+.auth-card :is(input,textarea):focus{border-color:var(--brand-gold);box-shadow:0 0 0 4px rgba(197,138,52,.12)}
+.auth-card form button,.auth-link-button{background:linear-gradient(135deg,#a96e25,#d3a04d)}
+.auth-secondary{color:var(--brand-navy);background:#f3ecdf}
+.auth-bookings p{background:#faf6ef}
+
+/* Cart, checkout, profile and orders */
+.commerce-page{color:var(--brand-ink);background:radial-gradient(circle at 95% 5%,rgba(197,138,52,.08),transparent 22%)}
+.commerce-hero{background:radial-gradient(circle at 85% 15%,rgba(197,138,52,.4),transparent 30%),linear-gradient(135deg,#071426,#eee9df);box-shadow:0 25px 65px rgba(13,29,51,.2)}
+.commerce-hero span{color:#e8c98f}
+:is(.cart-item,.price-card,.checkout-card,.order-card,.orders-toolbar>div){border-color:var(--brand-line);background:var(--brand-paper);box-shadow:var(--lux-shadow-sm)}
+.cart-image-placeholder,.order-icon{color:var(--brand-gold-dark);background:var(--brand-gold-soft)}
+.cart-item-copy>span,.price-card>span,.order-card span{color:var(--brand-gold-dark)}
+.checkout-title>svg{color:var(--brand-gold-dark)}
+.checkout-fields :is(input,select,textarea):focus{border-color:var(--brand-gold);box-shadow:0 0 0 4px rgba(197,138,52,.12)}
+.location-picker{border-color:var(--brand-line);background:#faf6ef}.location-picker-head>svg,.gps-button{color:var(--brand-gold-dark)}
+
+/* Booking */
+.booking-service-page,.booking-result-page,.booking-details-page{background:radial-gradient(circle at 8% 5%,rgba(197,138,52,.09),transparent 24%),linear-gradient(180deg,var(--brand-ivory),var(--brand-paper))!important}
+:is(.booking-service-card,.booking-step-panel,.booking-summary-panel,.booking-feature-card,.booking-flow-card,.booking-result-card,.booking-detail-item){border-color:var(--brand-line)!important;background:var(--brand-paper)!important;box-shadow:0 16px 46px rgba(13,29,51,.075)!important}
+:is(.booking-header-icon,.booking-feature-icon,.booking-result-icon){background:linear-gradient(135deg,var(--brand-navy-2),var(--brand-gold))!important;color:#fff!important}
+.booking-field :is(input,select,textarea):focus{border-color:var(--brand-gold)!important;box-shadow:0 0 0 4px rgba(197,138,52,.12)!important}
+
+/* Shared footer and feedback */
+.footer{background:#071426}.footerCta{border-color:rgba(232,201,143,.2);background:radial-gradient(circle at 90% 10%,rgba(232,201,143,.2),transparent 38%),linear-gradient(120deg,#eee9df,#faf8f3)}
+.footerCta__copy span{color:#d5ad73}.footerCta__button{color:var(--brand-navy)}.footerCol h3:after{background:var(--brand-gold)}
+.scroll-progress{background:linear-gradient(90deg,#d8b56e,#a96e25)!important}.back-to-top{background:var(--brand-navy)!important;border-color:rgba(197,138,52,.3)!important}
+.localpintu-toast{border-color:var(--brand-line)!important;background:var(--brand-paper)!important}
+
+@media(max-width:640px){
+  .aboutPage,.service-flow-page,.contact-us-page,.auth-page,.commerce-page{background-color:var(--brand-ivory)}
+  :is(.application-service-card,.application-flow-card,.allBlogs__card,.contact-form-card,.cart-item,.checkout-card,.booking-service-card){box-shadow:0 10px 32px rgba(13,29,51,.075)!important}
+}
+/* Unified Obsidian theme â€” one system across the complete customer experience */
+:root{--brand-ink:#243451;--brand-navy:#faf8f3;--brand-navy-2:#eee9df;--brand-gold:#c79a5b;--brand-gold-dark:#dfbd84;--brand-gold-soft:rgba(212,168,95,.13);--brand-ivory:#faf8f3;--brand-paper:#ffffff;--brand-muted:#6d7480;--brand-line:rgba(255,255,255,.1);--brand-shadow:0 24px 70px rgba(0,0,0,.34);--lux-primary:#c79a5b;--lux-indigo:#faf8f3;--lux-accent:#c79a5b;--lux-ink:#243451;--lux-muted:#6d7480;--lux-line:rgba(255,255,255,.1);--lux-soft:#f3f0e8;--lux-surface:rgba(18,24,32,.95);--lux-gradient:linear-gradient(135deg,#496493,#dfbd84);--lux-shadow:0 22px 62px rgba(0,0,0,.34);--lux-shadow-sm:0 10px 32px rgba(0,0,0,.25)}
+html,body,#root{background:#faf8f3;color:#243451}body{color-scheme:dark}::-webkit-scrollbar-track{background:#faf8f3}::-webkit-scrollbar-thumb{background:#3b3429;border-color:#faf8f3}::selection{background:rgba(212,168,95,.3);color:#fff}
+.page-transition{background:#faf8f3}.route-loading{background:#faf8f3}
+
+/* Header */
+.premium-utility{border-color:rgba(255,255,255,.07)!important;background:#21365f!important}.premium-navbar{border-color:rgba(255,255,255,.09)!important;background:rgba(10,14,19,.95)!important;box-shadow:0 14px 40px rgba(0,0,0,.2)!important}.premium-logo-copy strong,.premium-links a,.premium-links button,.premium-actions button{color:#243451!important}.premium-logo-copy small,.utility-contact span{color:#8e97a4!important}.premium-links :is(a,button):hover,.premium-links :is(a,button).is-active{color:#dfbd84!important}.premium-cta,.drawer-cta{color:#22365c!important;background:linear-gradient(135deg,#496493,#dfbd84)!important}.premium-cart,.nav-call{border-color:rgba(255,255,255,.11)!important;color:#243451!important;background:#eee9df!important}.premium-dropdown,.profile-dropdown,.premium-drawer{border-color:rgba(255,255,255,.1)!important;color:#243451!important;background:#ffffff!important;box-shadow:0 28px 70px rgba(0,0,0,.45)!important}.premium-dropdown a,.profile-dropdown a,.premium-drawer a{color:#d9dde3!important}.drawer-head,.drawer-footer{border-color:rgba(255,255,255,.09)!important}
+
+/* Every page canvas */
+:is(.aboutPage,.allBlogs,.blogHero,.blog-detail-page,.contact-us-page,.service-flow-page,.application-services-section,.auth-page,.commerce-page,.booking-service-page,.booking-result-page,.booking-details-page,.not-found-page){color:#243451!important;background:radial-gradient(circle at 88% 4%,rgba(212,168,95,.075),transparent 24%),linear-gradient(180deg,#faf8f3,#0c1117 48%,#faf8f3)!important}
+:is(.aboutPage,.allBlogs,.blogHero,.blog-detail-page,.contact-us-page,.service-flow-page,.application-services-section,.auth-page,.commerce-page,.booking-service-page,.booking-result-page,.booking-details-page,.not-found-page) :is(h1,h2,h3,h4,strong){color:#243451}
+:is(.aboutPage,.allBlogs,.blogHero,.blog-detail-page,.contact-us-page,.service-flow-page,.application-services-section,.auth-page,.commerce-page,.booking-service-page,.booking-result-page,.booking-details-page,.not-found-page) p{color:#6d7480}
+
+/* One card surface */
+:is(.aboutStats,.aboutValue,.aboutStory__float,.allBlogs__featured,.allBlogs__card,.blog-detail-takeaways,.blog-detail-related__grid article,.contact-card,.contact-details-card,.contact-form-card,.contact-feature-card,.contact-trust-card,.application-service-card,.application-flow-card,.application-feature-card,.application-plan-detail,.application-status,.auth-card,.cart-item,.price-card,.checkout-card,.order-card,.orders-toolbar>div,.booking-service-card,.booking-step-panel,.booking-summary-panel,.booking-feature-card,.booking-flow-card,.booking-result-card,.booking-detail-item,.location-picker,.lux-state){border-color:rgba(255,255,255,.1)!important;color:#243451!important;background:#ffffff!important;box-shadow:0 18px 52px rgba(0,0,0,.25)!important}
+:is(.aboutValue,.allBlogs__card,.application-service-card,.application-flow-card,.contact-feature-card,.order-card):hover{border-color:rgba(212,168,95,.42)!important;box-shadow:0 26px 68px rgba(0,0,0,.38)!important}
+
+/* Consistent gold accents */
+:is(.aboutEyebrow,.aboutPage em,.allBlogs__heading>div>span,.allBlogs__heading em,.allBlogs__category,.allBlogs__read-more,.blogHero__badge,.blogHero__copy h1 em,.blog-detail-category,.blog-detail-section-label,.contact-section-kicker,.contact-hero__label,.application-services-heading span,.application-flow-heading span,.application-card-meta,.price-card>span,.cart-item-copy>span,.order-card span){color:#dfbd84!important}
+:is(.aboutStats__card>span,.aboutValue__top>span,.contact-info-item__icon,.contact-feature-card__icon,.application-view-button,.cart-image-placeholder,.order-icon,.booking-header-icon,.booking-feature-icon,.booking-result-icon){color:#dfbd84!important;background:rgba(212,168,95,.13)!important}
+:is(.aboutButton--primary,.aboutCta>a,.blogHero__actions a:first-child,.contact-submit-button,.application-book-link,.booking-submit-btn,.primary-action,.auth-card form button,.auth-link-button){border-color:transparent!important;color:#22365c!important;background:linear-gradient(135deg,#496493,#dfbd84)!important;box-shadow:0 14px 34px rgba(185,130,53,.18)!important}
+
+/* Typography and muted content */
+:is(.aboutHero__copy>p,.aboutStory__copy>p,.aboutSectionHeading p,.allBlogs__heading p,.allBlogs__featuredCopy>p,.allBlogs__content>p,.blogHero__copy>p,.blog-detail-header>p,.blog-detail-body p,.contact-us-page p,.application-services-heading p,.application-flow-heading p,.cart-item-copy p,.checkout-title p){color:#6d7480!important}
+:is(.allBlogs__featured h3 a,.allBlogs__content h3 a,.blog-detail-related__grid h3 a,.service-flow-page a,.cart-item h2,.order-card h2){color:#243451}
+
+/* Inputs and controls */
+:is(input,textarea,select){border-color:rgba(255,255,255,.12)!important;color:#243451!important;background:#f3f0e8!important}input::placeholder,textarea::placeholder{color:#707987!important}:is(input,textarea,select):focus{border-color:#c79a5b!important;box-shadow:0 0 0 4px rgba(212,168,95,.11)!important}.allBlogs__toolbar,.allBlogs__search{border-color:rgba(255,255,255,.1)!important;background:#ffffff!important}.allBlogs__categories button{color:#7a808b!important}.allBlogs__categories button:hover,.allBlogs__categories button.is-active{color:#f0c77c!important;background:rgba(212,168,95,.12)!important}
+
+/* Dark premium feature areas */
+.aboutProcess,.contact-hero,.commerce-hero,.appliance-hero-section,.blog-detail-cta{border:1px solid rgba(212,168,95,.14)!important;background:radial-gradient(circle at 88% 12%,rgba(212,168,95,.18),transparent 30%),linear-gradient(125deg,#2b4777,#29416d)!important;box-shadow:0 30px 80px rgba(0,0,0,.38)!important}.aboutProcess__heading>p,.contact-hero p,.commerce-hero p,.blog-detail-cta p{color:#7d838e!important}
+.aboutCta,.stats-trust,.home-repair-trust{border-color:rgba(212,168,95,.18)!important;background:linear-gradient(120deg,rgba(212,168,95,.1),#ffffff)!important}
+.blog-detail-assurance{border-color:rgba(255,255,255,.1)!important;background:#ffffff!important}.blog-detail-assurance>span{border-color:rgba(255,255,255,.08)!important}.blog-detail-assurance strong{color:#f1ede5!important}.blog-detail-assurance small{color:#8d96a3!important}.blog-detail-toc{border-color:rgba(255,255,255,.11)!important}.blog-detail-toc a{color:#7a808b!important}.blog-detail-help{border-color:rgba(212,168,95,.2)!important;background:linear-gradient(145deg,rgba(212,168,95,.1),#ffffff)!important}.blog-detail-takeaways{background:linear-gradient(135deg,rgba(212,168,95,.1),#ffffff)!important}.blog-detail-cover,.blogHero__image{border:1px solid rgba(255,255,255,.1)}
+
+/* Footer */
+.footer{border-top:1px solid rgba(255,255,255,.07)!important;background:#21365f!important}.footerCta{border-color:rgba(212,168,95,.18)!important;background:radial-gradient(circle at 90% 10%,rgba(212,168,95,.18),transparent 38%),linear-gradient(120deg,#eee9df,#faf8f3)!important}.footerCta__copy span,.footerCol__eyebrow{color:#c79a5b!important}.footerCta__button{color:#22365c!important;background:#fffaf5!important}.footerCol h3:after{background:#c79a5b!important}.footerDesc,.footerCol a,.contactItem strong{color:#7a808b!important}.footerBottom{border-color:rgba(255,255,255,.08)!important}
+
+/* Feedback */
+.localpintu-toast{border-color:rgba(255,255,255,.1)!important;color:#243451!important;background:#eee9df!important}.scroll-progress{background:linear-gradient(90deg,#a87431,#dfbd84)!important}.back-to-top{border-color:rgba(212,168,95,.25)!important;color:#f3cf8d!important;background:#ffffff!important}
+
+/* Final two-colour system: Royal Plum + Rose Copper */
+:root{--theme-plum:#faf8f3;--theme-plum-surface:#ffffff;--theme-rose:#c79a5b;--theme-rose-light:#dfbd84}.primary-action,.premium-cta,.drawer-cta,.aboutButton--primary,.aboutCta>a,.blogHero__actions a:first-child,.contact-submit-button,.application-book-link,.booking-submit-btn,.auth-card form button,.auth-link-button{background:linear-gradient(135deg,#2f4775,#c79a5b)!important}.premium-links :is(a,button).is-active:after{background:#c79a5b!important}.application-service-card{border-top-color:#c79a5b!important}.footerCol h3:after,.scroll-progress{background:linear-gradient(90deg,#2f4775,#c79a5b)!important}
+
+/* Final light two-colour system: Eucalyptus Teal + Warm Terracotta */
+:root{--theme-teal:#2f4775;--theme-teal-deep:#21365f;--theme-terracotta:#c79a5b;--theme-pearl:#faf8f3;--theme-white:#fff;--brand-ink:#243451;--brand-muted:#6d7480;--brand-line:rgba(15,106,99,.14);--lux-ink:#243451;--lux-muted:#6d7480;--lux-line:rgba(15,106,99,.14);--lux-surface:#fff;--lux-soft:#f5f2eb;--lux-shadow:0 22px 60px rgba(24,58,58,.1);--lux-shadow-sm:0 10px 30px rgba(24,58,58,.075)}
+html,body,#root,.page-transition{color-scheme:light;color:#243451;background:#faf8f3}.premium-navbar{border-color:rgba(15,106,99,.12)!important;background:rgba(255,255,255,.96)!important;box-shadow:0 12px 34px rgba(24,58,58,.08)!important}.premium-logo-copy strong,.premium-links a,.premium-links button,.premium-actions button{color:#243451!important}.premium-links :is(a,button):hover,.premium-links :is(a,button).is-active{color:#2f4775!important}.premium-cart,.nav-call{border-color:rgba(15,106,99,.14)!important;color:#2f4775!important;background:#f4f8f6!important}.premium-dropdown,.profile-dropdown,.premium-drawer{border-color:rgba(15,106,99,.13)!important;color:#243451!important;background:#fff!important;box-shadow:0 26px 65px rgba(24,58,58,.14)!important}.premium-dropdown a,.profile-dropdown a,.premium-drawer a{color:#314e4c!important}
+:is(.aboutPage,.allBlogs,.blogHero,.blog-detail-page,.contact-us-page,.service-flow-page,.application-services-section,.auth-page,.commerce-page,.booking-service-page,.booking-result-page,.booking-details-page,.not-found-page){color:#243451!important;background:radial-gradient(circle at 90% 3%,rgba(216,131,92,.1),transparent 22%),linear-gradient(180deg,#faf8f3,#f5f2eb 48%,#faf8f3)!important}
+:is(.aboutPage,.allBlogs,.blogHero,.blog-detail-page,.contact-us-page,.service-flow-page,.application-services-section,.auth-page,.commerce-page,.booking-service-page,.booking-result-page,.booking-details-page,.not-found-page) :is(h1,h2,h3,h4,strong){color:#243451}
+:is(.aboutStats,.aboutValue,.aboutStory__float,.allBlogs__featured,.allBlogs__card,.blog-detail-takeaways,.blog-detail-related__grid article,.contact-card,.contact-details-card,.contact-form-card,.contact-feature-card,.contact-trust-card,.application-service-card,.application-flow-card,.application-feature-card,.application-plan-detail,.application-status,.auth-card,.cart-item,.price-card,.checkout-card,.order-card,.orders-toolbar>div,.booking-service-card,.booking-step-panel,.booking-summary-panel,.booking-feature-card,.booking-flow-card,.booking-result-card,.booking-detail-item,.location-picker,.lux-state){border-color:rgba(15,106,99,.13)!important;color:#243451!important;background:#fff!important;box-shadow:0 16px 45px rgba(24,58,58,.075)!important}
+:is(input,textarea,select){border-color:rgba(15,106,99,.16)!important;color:#243451!important;background:#fff!important}input::placeholder,textarea::placeholder{color:#8c9099!important}.allBlogs__toolbar,.allBlogs__search{border-color:rgba(15,106,99,.13)!important;background:#fff!important}
+:is(.aboutProcess,.contact-hero,.commerce-hero,.appliance-hero-section,.blog-detail-cta){border-color:rgba(255,255,255,.18)!important;background:radial-gradient(circle at 88% 12%,rgba(216,131,92,.32),transparent 30%),linear-gradient(125deg,#2f4775,#21365f)!important;box-shadow:0 28px 70px rgba(11,69,66,.22)!important}:is(.aboutProcess,.contact-hero,.commerce-hero,.appliance-hero-section,.blog-detail-cta) :is(h1,h2,h3,strong){color:#fff!important}:is(.aboutProcess,.contact-hero,.commerce-hero,.appliance-hero-section,.blog-detail-cta) p{color:#e6e1d8!important}
+.primary-action,.premium-cta,.drawer-cta,.aboutButton--primary,.aboutCta>a,.blogHero__actions a:first-child,.contact-submit-button,.application-book-link,.booking-submit-btn,.auth-card form button,.auth-link-button{color:#fff!important;background:linear-gradient(135deg,#2f4775,#c79a5b)!important;box-shadow:0 14px 32px rgba(15,106,99,.2)!important}.footer{background:#21365f!important}.footer :is(h2,h3,h4,strong){color:#fff!important}.footerCta{background:linear-gradient(120deg,#2b4777,#21365f)!important}.footerCta__button{color:#21365f!important;background:#fff!important}.footerDesc,.footerCol a,.contactItem strong{color:#d1cec7!important}.footerBottom{color:#c5c2bb!important}
+
+/* Final colour direction: Twilight Indigo + Soft Coral */
+:root{--theme-indigo:#2f4775;--theme-indigo-deep:#21365f;--theme-coral:#c79a5b;--theme-pearl:#faf8f3;--brand-ink:#243451;--brand-muted:#6d7480;--brand-line:rgba(75,87,168,.14);--lux-ink:#243451;--lux-muted:#6d7480;--lux-line:rgba(75,87,168,.14);--lux-soft:#f5f2eb;--lux-shadow:0 22px 60px rgba(48,59,120,.11);--lux-shadow-sm:0 10px 30px rgba(48,59,120,.075)}
+.primary-action,.premium-cta,.drawer-cta,.aboutButton--primary,.aboutCta>a,.blogHero__actions a:first-child,.contact-submit-button,.application-book-link,.booking-submit-btn,.auth-card form button,.auth-link-button{background:linear-gradient(135deg,#2f4775,#c79a5b)!important;box-shadow:0 14px 32px rgba(75,87,168,.2)!important}:is(.aboutProcess,.contact-hero,.commerce-hero,.appliance-hero-section,.blog-detail-cta){background:radial-gradient(circle at 88% 12%,rgba(216,131,92,.32),transparent 30%),linear-gradient(125deg,#2f4775,#21365f)!important;box-shadow:0 28px 70px rgba(48,59,120,.22)!important}.footer{background:#21365f!important}.footerCta{background:linear-gradient(120deg,#2b4777,#21365f)!important}.premium-utility{background:#21365f!important}.premium-links :is(a,button):hover,.premium-links :is(a,button).is-active{color:#2f4775!important}.premium-cart,.nav-call{color:#2f4775!important;background:#f5f2eb!important}.application-service-card{border-top-color:#c79a5b!important}
+
+/* Definitive two-colour luxury system: Royal Sapphire + Champagne Bronze */
+:root{--premium-sapphire:#2f4775;--premium-sapphire-deep:#21365f;--premium-champagne:#c79a5b;--premium-champagne-light:#dfbd84;--premium-porcelain:#faf8f3;--brand-ink:#243451;--brand-muted:#6d7480;--brand-line:rgba(47,71,117,.13);--lux-primary:#2f4775;--lux-accent:#c79a5b;--lux-ink:#243451;--lux-muted:#6d7480;--lux-line:rgba(47,71,117,.13);--lux-soft:#f5f2eb;--lux-shadow:0 24px 65px rgba(33,54,95,.105);--lux-shadow-sm:0 10px 30px rgba(33,54,95,.07)}
+html,body,#root,.page-transition{background:#faf8f3;color:#243451}.premium-utility{background:#21365f!important}.premium-navbar{border-color:rgba(47,71,117,.12)!important;background:rgba(255,255,255,.97)!important}.premium-links :is(a,button):hover,.premium-links :is(a,button).is-active{color:#2f4775!important}.premium-cart,.nav-call{color:#2f4775!important;background:#f5f2eb!important}.primary-action,.premium-cta,.drawer-cta,.aboutButton--primary,.aboutCta>a,.blogHero__actions a:first-child,.contact-submit-button,.application-book-link,.booking-submit-btn,.auth-card form button,.auth-link-button{color:#fff!important;background:linear-gradient(135deg,#2f4775 0%,#2f4775 48%,#c79a5b 100%)!important;box-shadow:0 15px 34px rgba(47,71,117,.2)!important}:is(.aboutProcess,.contact-hero,.commerce-hero,.appliance-hero-section,.blog-detail-cta){background:radial-gradient(circle at 88% 12%,rgba(199,154,91,.3),transparent 30%),linear-gradient(125deg,#2f4775,#21365f)!important;box-shadow:0 30px 75px rgba(33,54,95,.22)!important}.footer{background:#21365f!important}.footerCta{background:radial-gradient(circle at 88% 10%,rgba(199,154,91,.24),transparent 34%),linear-gradient(120deg,#2b4777,#21365f)!important}.footerCta__copy span,.footerCol__eyebrow{color:#dfbd84!important}.footerCol h3:after,.scroll-progress{background:linear-gradient(90deg,#c79a5b,#dfbd84)!important}.application-service-card{border-top-color:#c79a5b!important}:is(.aboutPage,.allBlogs,.blogHero,.blog-detail-page,.contact-us-page,.service-flow-page,.application-services-section,.auth-page,.commerce-page,.booking-service-page,.booking-result-page,.booking-details-page,.not-found-page){background:radial-gradient(circle at 92% 2%,rgba(199,154,91,.09),transparent 23%),linear-gradient(180deg,#faf8f3,#f4f1e9 50%,#faf8f3)!important}:is(.aboutStats,.aboutValue,.aboutStory__float,.allBlogs__featured,.allBlogs__card,.blog-detail-related__grid article,.contact-card,.contact-details-card,.contact-form-card,.contact-feature-card,.contact-trust-card,.application-service-card,.application-flow-card,.application-feature-card,.application-plan-detail,.auth-card,.cart-item,.price-card,.checkout-card,.order-card,.booking-service-card,.booking-step-panel,.booking-summary-panel,.booking-feature-card,.booking-flow-card,.booking-result-card,.booking-detail-item){border-color:rgba(47,71,117,.12)!important;background:#fff!important;box-shadow:0 16px 46px rgba(33,54,95,.075)!important}:is(.aboutValue,.allBlogs__card,.application-service-card,.application-flow-card,.contact-feature-card,.order-card):hover{border-color:rgba(199,154,91,.42)!important;box-shadow:0 25px 65px rgba(33,54,95,.13)!important}

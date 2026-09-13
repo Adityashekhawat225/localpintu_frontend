@@ -1,0 +1,25 @@
+.home-repair-image {
+  background: #f6f2ec;
+}
+
+.home-repair-artwork {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-repair-artwork img {
+  position: absolute;
+  top: calc(var(--home-sprite-row) * -100%);
+  left: calc(var(--home-sprite-column) * -100%);
+  width: 300%;
+  max-width: none;
+  height: 200%;
+  object-fit: fill;
+  transform: none;
+}
+
+.home-repair-card:hover .home-repair-artwork {
+  transform: scale(1.045);
+}

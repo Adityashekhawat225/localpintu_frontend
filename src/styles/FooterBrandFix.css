@@ -1,0 +1,17 @@
+.footerCol.company > .footerBrand {
+  width: fit-content;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 0;
+}
+
+.footerCol.company > .footerBrand > span:last-child {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 520px) {
+  .footerCol.company > .footerBrand {
+    gap: 10px;
+  }
+}

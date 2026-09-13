@@ -1,0 +1,2 @@
+import { Component } from "react";
+export default class AppErrorBoundary extends Component { state={failed:false};static getDerivedStateFromError(){return{failed:true}}render(){return this.state.failed?<main role="alert" style={{minHeight:"100vh",display:"grid",placeItems:"center",padding:24,textAlign:"center",fontFamily:"system-ui"}}><div><h1>Something went wrong</h1><p>Please reload the page to continue.</p><button type="button" onClick={()=>window.location.reload()}>Reload page</button></div></main>:this.props.children} }

@@ -1,0 +1,22 @@
+{
+  "longTaskCount": 14,
+  "longestTasksMs": [
+    322,
+    302,
+    108,
+    108,
+    103,
+    100,
+    97,
+    89,
+    78,
+    76
+  ],
+  "categoryDurationsMs": {
+    "UpdateLayoutTree": 146,
+    "Layout": 367,
+    "Paint": 81,
+    "FunctionCall": 55,
+    "EvaluateScript": 3
+  }
+}

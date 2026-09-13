@@ -1,0 +1,5 @@
+import { PurgeCSS } from "purgecss";
+import { writeFile } from "node:fs/promises";
+const content=["src/pages/home.jsx","src/layouts/nav.jsx","src/layouts/Hero/**/*.jsx","src/layouts/Services/**/*.jsx","src/layouts/HomeRepair/**/*.jsx","src/layouts/VideoSection/**/*.jsx","src/layouts/Stats/**/*.jsx","src/layouts/LatestBlogs/**/*.jsx","src/layouts/Footer.jsx","src/components/SeoContent.jsx","src/components/ScrollProgress.jsx","src/components/LocationPicker.jsx"];
+const [result]=await new PurgeCSS().purge({content,css:["src/styles/luxurySystem.css"],safelist:{standard:[/^is-/,/^status-/,/^data-/,/^swiper-/,"hero-modal-open","offer-popup-open"],deep:[/^premium-/,/^discovery-/,/^drawer-/,/^footer/,/^marketplace-/,/^services/,/^home-repair/,/^video-/,/^stats-/,/^latestBlogs/,/^blogCard/,/^seo-/,/^location-/]}});
+await writeFile("src/styles/luxuryHome.css",result.css);console.log(`Home luxury CSS: ${Buffer.byteLength(result.css)} bytes`);

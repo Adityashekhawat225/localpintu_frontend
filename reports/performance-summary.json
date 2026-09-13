@@ -1,0 +1,38 @@
+{
+  "release-mobile": {
+    "performance": 97,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "FCP": 1619.0059999999999,
+    "LCP": 2054.4096,
+    "TBT": 159.3012000000001,
+    "CLS": 0,
+    "SI": 1619.0059999999999,
+    "TTI": 2061.7782800000004
+  },
+  "release-desktop": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "FCP": 389.63849999999996,
+    "LCP": 569.4323999999999,
+    "TBT": 78.8277,
+    "CLS": 0,
+    "SI": 628.1628714922197,
+    "TTI": 644.12127
+  },
+  "final-slow4g": {
+    "performance": 82,
+    "accessibility": null,
+    "bestPractices": null,
+    "seo": null,
+    "FCP": 3067.49075,
+    "LCP": 3764.9852,
+    "TBT": 148,
+    "CLS": 0,
+    "SI": 3067.49075,
+    "TTI": 3764.9852
+  }
+}

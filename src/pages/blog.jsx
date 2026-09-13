@@ -1,0 +1,2 @@
+import "../styles/luxurySystem.css";
+import Nav from "../layouts/nav";import BlogHero from "../AllBlogs/BlogHero";import AllBlogs from "../AllBlogs/AllBlogs";import Footer from "../layouts/Footer";function BlogPage(){return <><Nav/><main><BlogHero/><AllBlogs/></main><Footer/></>}export default BlogPage;

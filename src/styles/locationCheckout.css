@@ -1,0 +1,30 @@
+.location-mode-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+.location-mode-options button {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 70px;
+  padding: 13px;
+  border: 1px solid #d9e0ea;
+  border-radius: 14px;
+  color: #344054;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+.location-mode-options button > svg { flex: 0 0 auto; font-size: 21px; color: #667085; }
+.location-mode-options button span,
+.location-mode-options button strong,
+.location-mode-options button small { display: block; }
+.location-mode-options button small { margin-top: 3px; color: #667085; }
+.location-mode-options button.active { border-color: #3155d9; background: #eef2ff; box-shadow: 0 0 0 3px rgba(49,85,217,.1); }
+.location-mode-options button.active > svg,
+.location-mode-options button.active strong { color: #3155d9; }
+.location-privacy-note { display: flex; align-items: center; gap: 7px; margin: 14px 0 0; color: #667085; font-size: 11px; }
+.location-privacy-note svg { color: #059669; }
+@media (max-width: 650px) { .location-mode-options { grid-template-columns: 1fr; } }

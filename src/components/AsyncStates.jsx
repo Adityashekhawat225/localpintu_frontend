@@ -1,0 +1,4 @@
+import { FiAlertTriangle, FiInbox, FiRefreshCw } from "react-icons/fi";
+export function SkeletonGrid({count=6}){return <div className="lux-skeleton-grid" role="status" aria-label="Loading content">{Array.from({length:count},(_,index)=><div className="lux-skeleton-card" key={index}><span/><i/><i/><i/></div>)}</div>}
+export function EmptyState({title="Nothing here yet",message="New content will appear here when available.",action}){return <section className="lux-state"><FiInbox/><h2>{title}</h2><p>{message}</p>{action}</section>}
+export function ErrorState({title="Something went wrong",message,onRetry}){return <section className="lux-state lux-state-error"><FiAlertTriangle/><h2>{title}</h2><p>{message}</p>{onRetry&&<button onClick={onRetry}><FiRefreshCw/>Try again</button>}</section>}

@@ -1,0 +1,56 @@
+{
+  "home": {
+    "Timestamp": 16911.316465,
+    "Documents": 8,
+    "Frames": 6,
+    "JSEventListeners": 158,
+    "Nodes": 1840,
+    "LayoutCount": 46,
+    "RecalcStyleCount": 312,
+    "LayoutDuration": 0.368289,
+    "RecalcStyleDuration": 0.150298,
+    "ScriptDuration": 0.066949,
+    "TaskDuration": 2.694559,
+    "JSHeapUsedSize": 4815472,
+    "JSHeapTotalSize": 7864320,
+    "domNodes": 1075,
+    "errors": []
+  },
+  "smoke": [
+    {
+      "route": "/about",
+      "title": "About LocalPintu | Trusted Home-Service Professionals in Jaipur",
+      "h1": "Home care built on skill, honesty and trust."
+    },
+    {
+      "route": "/blogs",
+      "title": "Home Care & Appliance Repair Guides | LocalPintu Journal",
+      "h1": "Smarter ideas for a better cared-for home."
+    },
+    {
+      "route": "/applications",
+      "title": "Book Home Services in Jaipur | LocalPintu Service Catalogue",
+      "h1": "Appliance Repair"
+    },
+    {
+      "route": "/contact",
+      "title": "Contact LocalPintu Jaipur | Home-Service Booking Support",
+      "h1": "One place for every service question."
+    },
+    {
+      "route": "/login",
+      "title": "Customer Login | LocalPintu",
+      "h1": "Welcome back"
+    },
+    {
+      "route": "/cart",
+      "title": "Your Service Cart | LocalPintu",
+      "h1": "Review your selected care"
+    },
+    {
+      "route": "/technician/login",
+      "title": "Technician Login | LocalPintu",
+      "h1": "Technician Login"
+    }
+  ]
+}

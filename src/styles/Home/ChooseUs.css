@@ -1,0 +1,267 @@
+.choose-us {
+  padding: 80px 6%;
+  background: #f8fafc;
+}
+
+.choose-container {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+/* LEFT */
+
+.choose-left {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.choose-left img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+}
+
+/* Overlay */
+
+.choose-overlay {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  max-width: 360px;
+}
+
+.choose-badge {
+  display: inline-block;
+  padding: 8px 18px;
+  background: rgba(37, 99, 235, 0.2);
+  color: #fff;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+.choose-overlay h2 {
+  margin-top: 18px;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.choose-overlay h2 span {
+  display: block;
+  color: #ff8c00;
+}
+
+.choose-overlay p {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.choose-overlay p span {
+  color: #58a6ff;
+  font-weight: 700;
+}
+
+/* RIGHT */
+
+.choose-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.choose-card {
+  background: #fff;
+  border: 1px solid #edf2f7;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  min-height: 175px;
+  transition: all 0.35s ease;
+}
+
+.choose-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+}
+
+.choose-icon {
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+  border-radius: 50%;
+  background: #f2f6ff;
+  color: #2563eb;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.choose-card h4 {
+  color: #111827;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.choose-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Satisfaction Box */
+
+.choose-bottom-box {
+  margin-top: 18px;
+  background: #f5f7fb;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.choose-bottom-box > div {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.choose-bottom-box svg {
+  color: #2563eb;
+  font-size: 28px;
+}
+
+.choose-bottom-box h4 {
+  font-size: 18px;
+  color: #111827;
+}
+
+.choose-bottom-box p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Bottom Features */
+
+.choose-features {
+  margin-top: 25px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 35px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.choose-features > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.choose-features svg {
+  color: #2563eb;
+  font-size: 30px;
+}
+
+.choose-features h4 {
+  color: #111827;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.choose-features p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .choose-container {
+    grid-template-columns: 1fr;
+  }
+
+  .choose-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .choose-bottom-box {
+    flex-direction: column;
+  }
+
+  .choose-features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .choose-left img {
+    min-height: 450px;
+  }
+
+  .choose-overlay h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .choose-us {
+    padding: 60px 20px;
+  }
+
+  .choose-left img {
+    min-height: 350px;
+  }
+
+  .choose-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .choose-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .choose-features {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .choose-overlay {
+    left: 20px;
+    top: 20px;
+    max-width: 280px;
+  }
+
+  .choose-overlay h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .choose-us {
+    padding-inline: 14px;
+  }
+
+  .choose-card {
+    flex-direction: column;
+  }
+}
+
+.choose-card { border: 1px solid rgba(13, 27, 62, 0.07); transition: transform 240ms cubic-bezier(.22,1,.36,1), box-shadow 240ms ease; }
+.choose-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(13, 27, 62, 0.12); }
+.choose-icon { transition: transform 240ms cubic-bezier(.22,1,.36,1); }
+.choose-card:hover .choose-icon { transform: scale(1.08); }

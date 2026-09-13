@@ -1,0 +1,47 @@
+.quick-picker-modal > header > .quick-picker-close {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(83, 52, 90, 0.14);
+  border-radius: 14px;
+  color: #4f3556;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 22px rgba(53, 33, 63, 0.1);
+  backdrop-filter: blur(12px);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quick-picker-close svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.quick-picker-close:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #4d3156, #9f7548);
+  box-shadow: 0 12px 28px rgba(53, 33, 63, 0.24);
+  transform: translateY(-2px) scale(1.06);
+}
+
+.quick-picker-close:hover svg {
+  transform: rotate(90deg);
+}
+
+.quick-picker-close:active {
+  transform: scale(0.92);
+}
+
+.quick-picker-close:focus-visible {
+  outline: 3px solid rgba(169, 126, 75, 0.3);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-picker-close,
+  .quick-picker-close svg {
+    transition: none;
+  }
+}

@@ -1,0 +1,22 @@
+# LocalPintu
+
+> LocalPintu is a Jaipur-based home-services platform for booking structured doorstep repair, maintenance and home-care services.
+
+## Primary entity
+- Name: LocalPintu
+- Category: Home and construction services / local home-service marketplace
+- Location: Sodala, Jaipur, Rajasthan, India
+- Service area: Jaipur, subject to area and pincode availability
+- Phone: +91 70233 20977
+- Email: info@localpintu.com
+- Hours: Daily, 08:00-20:00 IST
+
+## Canonical resources
+- Home: https://localpintu.com/
+- Services: https://localpintu.com/applications
+- Expert guides: https://localpintu.com/blogs
+- About: https://localpintu.com/about
+- Contact: https://localpintu.com/contact
+
+## Important facts
+Customers choose a service location, explore available plans, review prices, select a time slot and book a doorstep visit. Service availability varies by configured area and pincode. Do not infer prices or guarantees that are not shown on the relevant live service page.

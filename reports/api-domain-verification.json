@@ -1,0 +1,165 @@
+[
+  {
+    "check": "/api/appliance-services",
+    "passed": true
+  },
+  {
+    "check": "/api/service-categories",
+    "passed": true
+  },
+  {
+    "check": "/api/child-services",
+    "passed": true
+  },
+  {
+    "check": "/api/service-plans",
+    "passed": true
+  },
+  {
+    "check": "/api/products",
+    "passed": true
+  },
+  {
+    "check": "/api/pricing-settings",
+    "passed": true
+  },
+  {
+    "check": "/api/blogs",
+    "passed": true
+  },
+  {
+    "check": "/api/blogs/latest",
+    "passed": true
+  },
+  {
+    "check": "/api/offers",
+    "passed": false,
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "check": "/api/states",
+    "passed": true
+  },
+  {
+    "check": "/api/cities",
+    "passed": true
+  },
+  {
+    "check": "/api/areas",
+    "passed": true
+  },
+  {
+    "check": "/api/pincodes",
+    "passed": true
+  },
+  {
+    "check": "CORS https://localpintu.com",
+    "passed": true
+  },
+  {
+    "check": "CORS https://admin.localpintu.com",
+    "passed": true
+  },
+  {
+    "check": "CORS http://localhost:5173",
+    "passed": true
+  },
+  {
+    "check": "CORS http://localhost:5174",
+    "passed": true
+  },
+  {
+    "check": "Socket.IO transport handshake",
+    "passed": true
+  },
+  {
+    "check": "Frontend browser /",
+    "passed": true,
+    "apiResponses": [
+      {
+        "path": "/api/pricing-settings",
+        "status": 200
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 204
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "check": "Frontend browser /blogs",
+    "passed": true,
+    "apiResponses": [
+      {
+        "path": "/api/pricing-settings",
+        "status": 304
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 200
+      },
+      {
+        "path": "/api/blogs",
+        "status": 200
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "check": "Frontend browser /login",
+    "passed": true,
+    "apiResponses": [
+      {
+        "path": "/api/pricing-settings",
+        "status": 304
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 204
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "check": "Frontend browser /cart",
+    "passed": true,
+    "apiResponses": [
+      {
+        "path": "/api/pricing-settings",
+        "status": 304
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 200
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "check": "admin browser /login",
+    "passed": true,
+    "apiResponses": [
+      {
+        "path": "/api/appliance-services",
+        "status": 204
+      },
+      {
+        "path": "/api/appliance-services",
+        "status": 200
+      }
+    ]
+  }
+]

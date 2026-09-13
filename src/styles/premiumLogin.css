@@ -1,0 +1,107 @@
+.customer-login-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: clamp(24px, 6vh, 70px) 18px;
+  background:
+    radial-gradient(circle at 11% 9%, rgba(80, 52, 92, .085), transparent 27%),
+    radial-gradient(circle at 87% 86%, rgba(188, 143, 80, .095), transparent 29%),
+    linear-gradient(145deg, #faf7f3 0%, #f2ebe4 100%) !important;
+}
+.customer-login-page::before,
+.customer-login-page::after {
+  position: absolute;
+  z-index: -1;
+  width: 380px;
+  height: 380px;
+  border: 1px solid rgba(169, 128, 73, .10);
+  border-radius: 50%;
+  content: "";
+}
+.customer-login-page::before { top: -242px; right: -166px; opacity:.62; box-shadow: 0 0 0 48px rgba(219, 194, 145, .025), 0 0 0 96px rgba(80, 52, 92, .012); }
+.customer-login-page::after { bottom: -286px; left: -188px; opacity:.55; box-shadow: 0 0 0 56px rgba(80, 52, 92, .015); }
+.customer-login-card {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 520px) !important;
+  padding: 38px 42px 34px !important;
+  border: 1px solid rgba(186, 148, 96, .22) !important;
+  border-top: 2px solid rgba(205, 164, 105, .82) !important;
+  border-radius: 24px !important;
+  background: linear-gradient(145deg, rgba(255,255,255,.99), rgba(255,249,241,.96)) !important;
+  box-shadow: 0 28px 62px rgba(53, 33, 63, .15), 0 8px 22px rgba(53, 33, 63, .06), 0 1px 0 rgba(255,255,255,.9) inset !important;
+  backdrop-filter: none;
+}
+.customer-login-card::before { position:absolute; top:0; right:0; width:156px; height:156px; border-radius:0 0 0 100%; background:radial-gradient(circle at 100% 0, rgba(227,191,128,.10), transparent 68%); content:""; pointer-events:none; }
+.customer-login-card > * { position:relative; z-index:1; }
+.customer-login-card .auth-back-link { margin-bottom: 28px; color:#6a586e; letter-spacing:.01em; transition: color .2s ease, transform .2s ease; }
+.customer-login-card .auth-back-link:hover { color: #50345c; transform: translateX(-2px); }
+.customer-login-card .auth-brand { margin-bottom: 28px; }
+.customer-login-card .auth-brand > span {
+  width: 52px;
+  height: 52px;
+  padding: 4px;
+  border: 1px solid rgba(199, 154, 91, .24);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fff, #f2e3cf);
+  box-shadow: 0 13px 28px rgba(53, 33, 63, .18), inset 0 1px 0 #fff;
+}
+.customer-login-card .auth-brand > span img { display:block; width:100%; height:100%; object-fit:contain; border-radius: 11px; }
+.customer-login-card .auth-brand strong { color:#302035; font-size: 17px; letter-spacing: -.02em; }
+.customer-login-card .auth-brand small { color: #9b6c32; font-weight: 900; letter-spacing: .16em; }
+.customer-login-card h1 { margin-bottom: 9px; color: #35213f !important; font-size: clamp(33px, 4.2vw, 40px); font-weight:800; letter-spacing:-.045em; line-height:1.1; }
+.customer-login-card .auth-subtitle { margin-bottom: 28px; color: #77697a; font-size: 13px; line-height:1.55; }
+.customer-login-card .auth-input-field { gap: 9px; }
+.customer-login-card .auth-input-field > span { color: #49384f; font-size: 10px; font-weight:900; letter-spacing: .09em; text-transform:uppercase; }
+.customer-login-card .auth-input-field > div > svg { left: 17px; color: #ad814a; font-size: 18px; }
+.customer-login-card .auth-input-field input {
+  min-height: 58px !important;
+  padding: 0 18px 0 48px !important;
+  border: 1px solid #e4d6c7 !important;
+  border-radius: 15px !important;
+  color: #35213f;
+  background: #fdfbf8 !important;
+  font-size: 15px;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.customer-login-card .auth-input-field input::placeholder { color: #a19aa4; }
+.customer-login-card .auth-input-field input:focus { border-color: #b98d55 !important; background: #fff !important; box-shadow: 0 0 0 4px rgba(180, 138, 88, .14) !important; }
+.customer-login-card form .customer-login-submit {
+  position:relative;
+  overflow:hidden;
+  min-height: 56px !important;
+  margin-top: 3px;
+  border-radius: 15px !important;
+  background: linear-gradient(105deg, #40294b 0%, #684775 66%, #a97945 145%) !important;
+  box-shadow: 0 12px 22px rgba(53, 33, 63, .22), inset 0 1px 0 rgba(255,255,255,.20) !important;
+  font-size: 14px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.customer-login-card form .customer-login-submit::after { display:none; }
+.customer-login-card form .customer-login-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 19px 35px rgba(53, 33, 63, .31) !important; }
+.customer-login-card .auth-new-account { margin-top: 24px; padding-top: 21px; border-top-color: #eadccc; }
+.customer-login-card .auth-new-account a { color: #49304f; }
+.customer-login-card .auth-trust { margin-top: 17px; color: #827384; }
+.customer-login-card .auth-trust svg { color: #b48649; font-size: 13px; }
+.customer-login-card .auth-error { margin: 0 0 18px; border: 1px solid #fecdd3; }
+
+@media (max-width: 540px) {
+  .customer-login-page { display: grid !important; place-items: center; min-height: 100dvh !important; padding: 14px !important; }
+  .customer-login-card { width: 100% !important; padding: 28px 22px 24px !important; border-radius: 22px !important; box-shadow: 0 22px 48px rgba(53, 33, 63, .15), 0 6px 18px rgba(53, 33, 63, .05) !important; }
+  .customer-login-card .auth-back-link { min-height: 38px; align-items: center; margin: -4px 0 17px; }
+  .customer-login-card .auth-brand { margin-bottom: 22px; }
+  .customer-login-card .auth-brand > span { width: 48px; height: 48px; border-radius: 15px; }
+  .customer-login-card h1 { font-size: clamp(31px, 10vw, 38px) !important; }
+  .customer-login-card .auth-subtitle { margin-bottom: 23px; font-size: 12px !important; }
+  .customer-login-card .auth-input-field input { min-height: 57px !important; font-size: 16px; }
+  .customer-login-card form .customer-login-submit { min-height: 56px !important; }
+  .customer-login-card .auth-new-account { flex-direction: row; flex-wrap: wrap; gap: 5px; margin-top: 21px; }
+  .customer-login-card .auth-trust { line-height: 1.5; text-align: center; }
+}
+
+@media (max-width: 360px) {
+  .customer-login-page { padding: 8px !important; }
+  .customer-login-card { padding: 20px 16px !important; border-radius: 20px !important; }
+  .customer-login-card .auth-brand small { font-size: 8px; }
+}
