@@ -156,24 +156,33 @@ const Nav = () => {
   }, [menuOpen]);
 
   useEffect(() => {
-    if (!searchFocused || searchCatalog.length) return undefined;
     let alive = true;
-    Promise.all([loadServices(), getServiceCategories()]).then(([services, categories]) => {
+    const active = (item) => item?.isActive !== false;
+    const relation = (value) => typeof value === "object" ? value?._id : value;
+
+    // Preload search data before the customer begins typing. Service matches
+    // appear as soon as the first response arrives; categories fill in after.
+    setSearchLoading(true);
+    loadServices().then((services) => {
       if (!alive) return;
-      const relation = (value) => typeof value === "object" ? value?._id : value;
-      const active = (item) => item?.isActive !== false;
       const activeServices = services.filter(active);
       const serviceById = new Map(services.map((item) => [item._id, item]));
-      const entries = activeServices.map((service) => ({ id: `service-${service._id}`, title: service.title, kind: "Service", image: serviceVisual(service), path: `/applications/${service.slug}`, searchable: `${service.title} ${service.slug} ${service.shortDescription || ""}`.toLowerCase().replace(/-/g, " ") }));
-      categories.filter(active).forEach((category) => {
-        const service = serviceById.get(relation(category.serviceId));
-        if (!service?.slug || !category.slug) return;
-        entries.push({ id: `sub-service-${category._id}`, title: category.title, kind: "Sub-service", image: serviceVisual(category), parent: service.title, path: `/applications/${service.slug}/${category.slug}`, searchable: `${category.title} ${category.slug} ${category.description || ""} ${service.title}`.toLowerCase().replace(/-/g, " ") });
-      });
-      setSearchCatalog(entries);
-    }).catch(() => {}).finally(() => { if (alive) setSearchLoading(false); });
+      const serviceEntries = activeServices.map((service) => ({ id: `service-${service._id}`, title: service.title, kind: "Service", image: serviceVisual(service), path: `/applications/${service.slug}`, searchable: `${service.title} ${service.slug} ${service.shortDescription || ""}`.toLowerCase().replace(/-/g, " ") }));
+      setSearchCatalog(serviceEntries);
+      setSearchLoading(false);
+
+      getServiceCategories().then((categories) => {
+        if (!alive) return;
+        const categoryEntries = categories.filter(active).flatMap((category) => {
+          const service = serviceById.get(relation(category.serviceId));
+          if (!service?.slug || !category.slug) return [];
+          return [{ id: `sub-service-${category._id}`, title: category.title, kind: "Sub-service", image: serviceVisual(category), parent: service.title, path: `/applications/${service.slug}?category=${encodeURIComponent(category.slug)}`, searchable: `${category.title} ${category.slug} ${category.description || ""} ${service.title}`.toLowerCase().replace(/-/g, " ") }];
+        });
+        setSearchCatalog([...serviceEntries, ...categoryEntries]);
+      }).catch(() => {});
+    }).catch(() => { if (alive) setSearchLoading(false); });
     return () => { alive = false; };
-  }, [searchFocused, searchCatalog.length]);
+  }, []);
   useEffect(() => {
     if (!servicesOpen) return undefined;
     let alive = true;

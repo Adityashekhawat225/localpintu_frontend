@@ -166,9 +166,6 @@ export function ServiceCategoriesPage() {
     if (category) setSearchParams({ category: category.slug }, { replace: true });
     setShowPicker(false);
   };
-  // The old quick-booking URL used ?category=.  Keep one canonical category URL
-  // so customers never land in that legacy single-page flow.
-  if (data && service && requestedCategorySlug) return <Navigate to={selectedCategory ? `/applications/${service.slug}/${selectedCategory.slug}` : `/applications/${service.slug}`} replace />;
   return <PageShell><section className="application-services-section quick-booking-page">
     <FlowHeader eyebrow="Book in one page" title={service?.title || "Home service"} text={service?.shortDescription || "Choose what you need and add a plan without opening multiple pages."} backTo="/applications" backLabel="All services" level={3} />
     {showPicker && service && <div className="quick-picker-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setShowPicker(false); }}><section className="quick-picker-modal" role="dialog" aria-modal="true" aria-labelledby="quick-picker-title"><header><div><span>LOCALPINTU CONCIERGE</span><h2 id="quick-picker-title">Choose your appliance</h2><p>Select one to see exact services and transparent plans.</p></div><button className="quick-picker-close" type="button" onClick={() => setShowPicker(false)} aria-label="Close service picker"><FiX /></button></header><div className="quick-picker-grid">{categories.map((category, index) => <button type="button" onClick={() => chooseCategory(category._id)} key={category._id}><span><ApplianceArtwork category={category} /><i>{String(index + 1).padStart(2, "0")}</i></span><strong>{category.title}</strong><small>View services</small><FiArrowRight /></button>)}</div><footer><FiShield /><span><strong>Verified professionals</strong><small>Clear pricing · Doorstep convenience</small></span></footer></section></div>}
