@@ -37,6 +37,7 @@ const databaseImage = (value) => {
   }
   if (/^(data:image\/|blob:)/i.test(source)) return source;
   if (source.startsWith("//")) return `https:${source}`;
+  if (apiOrigin && /^(\/?catalog\/|\/?uploads\/)/.test(source)) return new URL(source, `${apiOrigin}/`).href;
   if (source.startsWith("/") && apiOrigin) return `${apiOrigin}${source}`;
   return null;
 };
@@ -66,10 +67,10 @@ const resolveLegacyServiceCatalogImage = (image) => {
 
 export function serviceVisual(item, index = null) {
   const text = normalized(`${item?.title} ${item?.slug} ${item?.category}`);
+  const resolvedImage = resolveLegacyServiceCatalogImage(item?.image);
+  if (resolvedImage) return resolvedImage;
   const directImage = databaseImage(item?.image);
   if (directImage) return directImage;
-  const resolvedImage = resolveLegacyServiceCatalogImage(item?.image);
-  if (resolvedImage && index === null) return resolvedImage;
   if (index !== null) return serviceCardPalette[Math.abs(index) % serviceCardPalette.length];
   if (String(item?.image || "").includes("service-catalog/")) return serviceCardPalette[Math.abs(visualSeed(item)) % serviceCardPalette.length];
   if (/interior|renovation|modular|wardrobe|design consultation/.test(text)) return interiors;

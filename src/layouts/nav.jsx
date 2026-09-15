@@ -199,7 +199,7 @@ const Nav = () => {
   );
 
   return (
-    <motion.header className={`premium-header ${scrolled ? "is-scrolled" : "is-top"}`} initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}>
+    <motion.header className={`premium-header ${scrolled ? "is-scrolled" : "is-top"}`} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}>
       <div className="premium-utility discovery-bar">
         {site.announcementText ? <div className="site-announcement" style={{ padding: "7px 14px", color: "#fff", background: "var(--lp-gradient)", textAlign: "center", fontSize: 10, fontWeight: 750 }}>{site.announcementText}</div> : null}
         <div className="utility-inner discovery-inner">

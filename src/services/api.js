@@ -70,6 +70,9 @@ export const getChildServices = async () =>
 export const getServicePlans = async () =>
   getFreshCatalog("/service-plans", "servicePlans");
 
+export const getServicePlan = async (id) =>
+  (await apiClient.get(`/service-plans/${encodeURIComponent(id)}`)).data.servicePlan;
+
 export const getFreshServicePlans = async () =>
   getFreshCatalog("/service-plans", "servicePlans");
 
