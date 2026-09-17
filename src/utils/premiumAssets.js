@@ -67,6 +67,11 @@ const resolveLegacyServiceCatalogImage = (image) => {
 
 export function serviceVisual(item, index = null) {
   const text = normalized(`${item?.title} ${item?.slug} ${item?.category}`);
+  // The service image managed in Admin is stored as `icon`.  It must take
+  // precedence over the branded fallback artwork so an admin update is
+  // reflected on every customer-facing service card.
+  const adminIcon = databaseImage(item?.icon);
+  if (adminIcon) return adminIcon;
   const resolvedImage = resolveLegacyServiceCatalogImage(item?.image);
   if (resolvedImage) return resolvedImage;
   const directImage = databaseImage(item?.image);
