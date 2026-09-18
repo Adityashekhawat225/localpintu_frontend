@@ -1,12 +1,13 @@
 import "../styles/luxurySystem.css";
-import { blogGallery, blogPublishDate, blogReadingTime, blogVisual } from "../utils/premiumAssets";
+import { blogPublishDate, blogReadingTime, blogVisual } from "../utils/premiumAssets";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FiArrowLeft, FiArrowRight, FiBookOpen, FiCalendar, FiCheck, FiClock, FiGrid, FiShield, FiTool } from "react-icons/fi";
 import Nav from "../layouts/nav";
 import Footer from "../layouts/Footer";
-import { getBlogBySlug, getBlogs } from "../services/api";
+import ServicePlanImage from "../components/ServicePlanImage";
+import { getApplianceServices, getBlogBySlug, getBlogs, getChildServices, getServiceCategories, getServicePlans } from "../services/api";
 import "../styles/Allblogs/AllBlogs.css";
 
 const fallbackArticle = (blog) => {
@@ -61,24 +62,59 @@ const relatedScore = (current, candidate) => {
   return score;
 };
 
+const relationId = (value) => (typeof value === "object" && value ? value._id : value);
+const planTopicKeywords = (blog) => {
+  const topic = `${blog?.slug || ""} ${blog?.title || ""}`.toLowerCase();
+  if (/(washing|washer|laundry)/.test(topic)) return ["washing", "washer", "laundry"];
+  if (/(refrigerator|fridge|freezer)/.test(topic)) return ["refrigerator", "fridge", "freezer"];
+  if (/(microwave|oven)/.test(topic)) return ["microwave", "oven"];
+  if (/(air conditioner|\bac\b|split ac|window ac)/.test(topic)) return ["air conditioner", "ac repair", "ac service", "split ac", "window ac"];
+  if (/(water purifier|\bro\b|filter)/.test(topic)) return ["water purifier", "ro", "filter"];
+  if (/(geyser|water heater)/.test(topic)) return ["geyser", "water heater"];
+  if (/(chimney)/.test(topic)) return ["chimney"];
+  if (/(electric)/.test(topic)) return ["electrician", "electric"];
+  if (/(plumb)/.test(topic)) return ["plumber", "plumb"];
+  if (/(carpenter|furniture)/.test(topic)) return ["carpenter", "furniture"];
+  if (/(paint)/.test(topic)) return ["painting", "painter"];
+  if (/(clean)/.test(topic)) return ["cleaning", "clean"];
+  return [...topicWords(blog)];
+};
+const money = (value) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(Number(value || 0));
+const relatedPlansForBlog = (blog, catalog) => {
+  if (!blog || !catalog) return [];
+  const keywords = planTopicKeywords(blog);
+  const children = new Map(catalog.childServices.map((item) => [String(item._id), item]));
+  const categories = new Map(catalog.categories.map((item) => [String(item._id), item]));
+  const services = new Map(catalog.services.map((item) => [String(item._id), item]));
+  return catalog.plans.filter((plan) => plan.isActive !== false).map((plan) => {
+    const child = children.get(String(relationId(plan.childServiceId)));
+    const category = categories.get(String(relationId(child?.categoryId)));
+    const service = services.get(String(relationId(category?.serviceId)));
+    if (!child || !category || !service || child.isActive === false || category.isActive === false || service.isActive === false) return null;
+    const searchable = `${plan.title || ""} ${plan.slug || ""} ${plan.description || ""} ${child.title || ""} ${child.slug || ""} ${category.title || ""} ${category.slug || ""} ${service.title || ""} ${service.slug || ""}`.toLowerCase();
+    const score = keywords.reduce((total, keyword) => total + (searchable.includes(keyword) ? 1 : 0), 0);
+    return score ? { plan, child, category, service, score } : null;
+  }).filter(Boolean).sort((a, b) => b.score - a.score).slice(0, 3);
+};
+
 const BlogDetails = () => {
   const { blogSlug } = useParams();
   const [blog, setBlog] = useState(null);
   const [blogs, setBlogs] = useState([]);
+  const [catalog, setCatalog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     let alive = true;
-    Promise.all([getBlogBySlug(blogSlug), getBlogs().catch(() => [])])
-      .then(([next, allBlogs]) => { if (alive) { setBlog(next); setBlogs(allBlogs); } })
+    Promise.all([getBlogBySlug(blogSlug), getBlogs().catch(() => []), getApplianceServices().catch(() => []), getServiceCategories().catch(() => []), getChildServices().catch(() => []), getServicePlans().catch(() => [])])
+      .then(([next, allBlogs, services, categories, childServices, plans]) => { if (alive) { setBlog(next); setBlogs(allBlogs); setCatalog({ services, categories, childServices, plans }); } })
       .catch(() => { if (alive) setError("Unable to load this blog right now."); })
       .finally(() => { if (alive) setLoading(false); });
     return () => { alive = false; };
   }, [blogSlug]);
 
   const paragraphs = useMemo(() => cleanParagraphs(blog), [blog]);
-  const gallery = useMemo(() => blog ? blogGallery(blog, 3) : [], [blog]);
   const related = useMemo(() => blogs.filter((item) => item.slug !== blogSlug).sort((a, b) => relatedScore(blog, b) - relatedScore(blog, a)).slice(0, 3), [blogs, blog, blogSlug]);
   const takeaways = paragraphs.slice(0, 3).map((text) => text.length > 105 ? `${text.slice(0, 102)}…` : text);
   const siteUrl = (import.meta.env.VITE_SITE_URL || "https://localpintu.com").replace(/\/$/, "");
@@ -90,6 +126,7 @@ const BlogDetails = () => {
   const nextArticle = articleIndex > 0 ? orderedBlogs[articleIndex - 1] : null;
   const articleKeywords = blog ? [blog.title, blog.category || "home care", "Jaipur home services", "appliance maintenance", "LocalPintu expert guide"] : [];
   const relatedService = useMemo(() => serviceForArticle(blog), [blog]);
+  const relatedPlans = useMemo(() => relatedPlansForBlog(blog, catalog), [blog, catalog]);
   const articleFaqs = blog ? [
     { question: `What should I check before arranging ${blog.title.toLowerCase()} help?`, answer: "Note the exact symptom, when it started, unusual sounds or smells, and any recent power or usage change. Stop using equipment immediately if there is smoke, sparking, overheating or exposed wiring." },
     { question: "When is professional diagnosis recommended?", answer: "Professional diagnosis is recommended when basic safe checks do not resolve the issue, the fault returns, a component needs opening, or electrical, gas, refrigerant and sealed-system work may be involved." },
@@ -121,8 +158,9 @@ const BlogDetails = () => {
 
             <div className="blog-detail-layout">
               <aside className="blog-detail-aside">
-                <div className="blog-detail-toc"><small>In this guide</small><a href="#overview">Overview</a><a href="#expert-notes">Expert notes</a><a href="#visual-guide">Visual guide</a><a href="#next-step">Next step</a></div>
+                <div className="blog-detail-toc"><small>In this guide</small><a href="#overview">Overview</a><a href="#expert-notes">Expert notes</a><a href="#next-step">Next step</a></div>
                 <div className="blog-detail-help"><FiShield /><strong>Need professional help?</strong><p>Choose a verified expert and convenient doorstep slot.</p><Link to={relatedService.to}>{relatedService.label} <FiArrowRight /></Link></div>
+                {relatedPlans.length > 0 && <section className="blog-related-plans" aria-labelledby="related-plans-title"><span>Recommended for this guide</span><h2 id="related-plans-title">Related service plans</h2>{relatedPlans.map(({ plan, child, category, service }, index) => <Link className="blog-related-plan" key={plan._id} to={`/applications/${service.slug}/${category.slug}/${child.slug}/${plan.slug}`}><ServicePlanImage plan={plan} index={index} alt="" loading="lazy" /><div><small>{child.title}</small><strong>{plan.title}</strong><b>{money(plan.customerPrice ?? plan.offerPrice ?? plan.price)}</b></div><FiArrowRight /></Link>)}</section>}
               </aside>
 
               <div className="blog-detail-body">
@@ -131,8 +169,6 @@ const BlogDetails = () => {
                 {takeaways.length > 0 && <div className="blog-detail-takeaways"><div><FiCheck /><span><small>Quick reference</small><strong>What to remember</strong></span></div><ul>{takeaways.map((item) => <li key={item}><FiCheck /> {item}</li>)}</ul></div>}
 
                 <section id="expert-notes"><span className="blog-detail-section-label">02 · Expert notes</span><h2>Small checks that make a meaningful difference</h2>{paragraphs.slice(2, 5).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{paragraphs.length < 3 && <p>Regular observation, timely maintenance and choosing the right professional can prevent a small issue from becoming an expensive repair.</p>}</section>
-
-                <section className="blog-detail-gallery-section" id="visual-guide"><span className="blog-detail-section-label">03 · Visual guide</span><div className="blog-detail-gallery">{gallery.map((image, index) => <figure key={image}><img src={image} alt={`${blog.title} — supporting visual ${index + 1}`} loading="lazy" decoding="async" /><figcaption>{["Inspect before you begin", "Use the right service approach", "Finish with a safety check"][index]}</figcaption></figure>)}</div></section>
 
                 {paragraphs.length > 5 && <section><h2>More practical guidance</h2>{paragraphs.slice(5).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>}
 

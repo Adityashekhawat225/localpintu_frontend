@@ -102,33 +102,6 @@ export function blogVisual(item) {
   return item?.image || editorial;
 }
 
-export function blogGallery(item, count = 3) {
-  const primary = blogVisual(item);
-  const topic = normalized(`${item?.slug} ${item?.title} ${item?.category}`);
-  const keywordGroups = [
-    ["freezer", "refrigerator", "fridge", "cooling"],
-    ["microwave", "oven"],
-    ["washing", "machine", "drum"],
-    ["ac", "air-conditioner", "cooling"],
-    ["water", "ro", "purifier", "filter"],
-    ["kitchen", "chimney", "cleaning"],
-    ["geyser", "heating"],
-    ["carpenter", "furniture"],
-  ];
-  const keywords = keywordGroups.find((group) => group.some((keyword) => topic.includes(keyword))) || [];
-  const seen = new Set([primary]);
-  const entries = blogImageEntries.filter(([, image]) => {
-    if (seen.has(image)) return false;
-    seen.add(image);
-    return true;
-  });
-  const relevant = entries.filter(([path]) => keywords.some((keyword) => path.includes(keyword))).map(([, image]) => image);
-  const remaining = entries.map(([, image]) => image).filter((image) => !relevant.includes(image));
-  const images = [...relevant, ...remaining];
-  if (!images.length) return [editorial, appliance, plumbing].slice(0, count);
-  const seed = String(item?.slug || item?.title || "localpintu").split("").reduce((total, char) => total + char.charCodeAt(0), 0);
-  return Array.from({ length: Math.min(count, images.length) }, (_, index) => images[index < relevant.length ? index : (seed + index * 7) % images.length]);
-}
 export function blogReadingTime(item) {
   const words = String(item?.content || item?.excerpt || "").trim().split(/\s+/).filter(Boolean).length;
   return `${Math.max(1, Math.ceil(words / 220))} min read`;
