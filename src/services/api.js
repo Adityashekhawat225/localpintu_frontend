@@ -68,7 +68,11 @@ export const getChildServices = async () =>
   getFreshCatalog("/child-services", "childServices");
 
 export const getServicePlans = async () =>
-  getFreshCatalog("/service-plans", "servicePlans");
+  // Plan artwork is managed in Admin. Unlike the other catalogue images it
+  // may be an embedded upload, so request it with the plan list rather than
+  // relying on the optional per-image endpoint being present on every API
+  // deployment.
+  getFreshCatalog("/service-plans?includeImages=true", "servicePlans");
 
 export const getServicePlan = async (id) =>
   (await apiClient.get(`/service-plans/${encodeURIComponent(id)}`)).data.servicePlan;
