@@ -6,6 +6,7 @@ import { getApplianceServices } from "../../services/api";
 import { serviceVisual } from "../../utils/premiumAssets";
 import { cardMotion, imageMotion, sectionReveal } from "../../utils/animations";
 import "../../styles/Home/Services.css";
+import "../../styles/Home/servicesSpacing.css";
 
 const serviceBadges = ["Most booked", "Expert care", "Same-day slots", "Service warranty"];
 const trustItems = [

@@ -1,0 +1,6 @@
+/* Keep the services heading visually connected to the trust strip above it. */
+@media (min-width: 621px) {
+  .services {
+    padding-top: clamp(56px, 5vw, 76px);
+  }
+}
