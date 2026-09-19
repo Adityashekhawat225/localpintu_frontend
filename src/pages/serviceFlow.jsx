@@ -9,6 +9,7 @@ import Footer from "../layouts/Footer";
 import { bySlug, getApplianceServices, getChildServices, getServiceCategories, getServicePlans, getProducts } from "../services/api";
 import "../styles/applicationStyle/applicationStyling.css";
 import "../styles/applicationStyle/quickPickerClose.css";
+import "../styles/applicationStyle/quickCartSummary.css";
 import { useLocationPreference } from "../hooks/useLocationPreference";
 import LocationPicker from "../components/LocationPicker";
 import { useCart } from "../context/CartContext";
@@ -98,6 +99,13 @@ function TrustStrip() {
   return <aside className="application-trust-strip"><span><FiShield /><strong>Verified professionals</strong></span><span><FiStar /><strong>Quality-first service</strong></span><span><FiClock /><strong>Convenient scheduling</strong></span></aside>;
 }
 
+function QuickCartSummary({ cart }) {
+  const itemCount = cart.items.reduce((total, item) => total + Math.max(1, Number(item.quantity || 1)), 0);
+  const categoryCount = new Set(cart.items.map((item) => item.categoryId).filter(Boolean)).size;
+  if (!itemCount) return null;
+  return <aside className="quick-cart-summary" aria-live="polite"><div><strong>{itemCount} {itemCount === 1 ? "item" : "items"} added</strong><span>From {categoryCount || 1} {categoryCount === 1 ? "category" : "categories"}</span></div><Link to="/cart">View cart <FiArrowRight /></Link></aside>;
+}
+
 function useServiceData(load) {
   const [data, setData] = useState(null), [loading, setLoading] = useState(true), [error, setError] = useState("");
   useEffect(() => { let alive = true; async function run() { setLoading(true); setError(""); try { const result = await load(); if (alive) setData(result); } catch { if (alive) setError("Unable to load this service information right now."); } finally { if (alive) setLoading(false); } } run(); return () => { alive = false; }; }, [load]);
@@ -180,6 +188,7 @@ export function ServiceCategoriesPage() {
       </section>
       <RecommendedProducts products={recommendedProducts} />
       <TrustStrip />
+      <QuickCartSummary cart={cart} />
     </>}</FlowState>
   </section></PageShell>;
 }
